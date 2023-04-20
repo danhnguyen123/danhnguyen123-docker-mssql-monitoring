@@ -1,0 +1,116 @@
+version: '3.8'
+services:
+
+  filebrowser:
+    image: hurlenko/filebrowser
+    container_name: filebrowser
+    user: "${UID}:${GID}"
+    ports:
+      - 1111:8080
+    volumes:
+      - ..:/data
+      - filebrowser-config:/config
+    environment:
+      - FB_BASEURL=/filebrowser
+    restart: always
+
+
+  mssql-server-1433:
+    container_name: mssql-server-1433
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "1433:1433"
+    environment:
+      # MSSQL_SA_USERNAME=sa
+      - MSSQL_SA_PASSWORD=Sqlserver_2019
+      - ACCEPT_EULA=Y
+    volumes:
+      - ./mssql-server:/opt/mssql-server
+      - sqlvolume-1433:/var/opt/mssql
+
+  mssql-server-1434:
+    container_name: mssql-server-1434
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "1434:1433"
+    environment:
+      # MSSQL_SA_USERNAME=sa
+      - MSSQL_SA_PASSWORD=Sqlserver_2019
+      - ACCEPT_EULA=Y
+    volumes:
+      - ./mssql-server:/opt/mssql-server
+      - sqlvolume-1434:/var/opt/mssql
+
+  mssql-server-1435:
+    container_name: mssql-server-1435
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "1435:1433"
+    environment:
+      # MSSQL_SA_USERNAME=sa
+      - MSSQL_SA_PASSWORD=Sqlserver_2019
+      - ACCEPT_EULA=Y
+    volumes:
+      - ./mssql-server:/opt/mssql-server
+      - sqlvolume-1435:/var/opt/mssql
+
+  mssql-server-1436:
+    container_name: mssql-server-1436
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "1436:1433"
+    environment:
+      # MSSQL_SA_USERNAME=sa
+      - MSSQL_SA_PASSWORD=Sqlserver_2019
+      - ACCEPT_EULA=Y
+    volumes:
+      - ./mssql-server:/opt/mssql-server
+      - sqlvolume-1436:/var/opt/mssql
+
+  mssql-server-1437:
+    container_name: mssql-server-1437
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "1437:1433"
+    environment:
+      # MSSQL_SA_USERNAME=sa
+      - MSSQL_SA_PASSWORD=Sqlserver_2019
+      - ACCEPT_EULA=Y
+    volumes:
+      - ./mssql-server:/opt/mssql-server
+      - sqlvolume-1437:/var/opt/mssql
+
+  mssql-server-1430:
+    container_name: mssql-server-1430
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "1430:1433"
+    environment:
+      # MSSQL_SA_USERNAME=sa
+      - MSSQL_SA_PASSWORD=Sqlserver_2019
+      - ACCEPT_EULA=Y
+    volumes:
+      - ./mssql-server:/opt/mssql-server
+      - sqlvolume-1430:/var/opt/mssql
+
+volumes:
+  filebrowser-config:
+  sqlvolume-1433:
+  sqlvolume-1434:
+  sqlvolume-1435:
+  sqlvolume-1436:
+  sqlvolume-1437:
+  sqlvolume-1430:
+

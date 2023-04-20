@@ -1,3 +1,5 @@
 [user]
 	name = danhnguyen123
 	email = nguyenthedanh34@gmail.com
+[credential]
+	helper = wincred

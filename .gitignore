@@ -1,0 +1,11 @@
+.cache/
+.config/
+.docker/
+.gnupg/
+.local/
+.ssh/
+.bash_logout
+.bashrc
+.profile
+*.bak
+
